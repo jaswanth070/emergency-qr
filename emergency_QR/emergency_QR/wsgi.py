@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'emercency_QR.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'emergency_QR.settings')
 
 application = get_wsgi_application()
