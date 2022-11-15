@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emergency QR</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            /* display: flex; */
+            /* overflow: hidden; */
+        }
+
+        .bloc-video {
+            position: relative;
+            height: 100vh;
+        }
+
+        .bloc-video video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            z-index: -1;
+            position: fixed;
+            opacity: .8;
+        }
+
+        .container{
+            position: absolute;
+            top:0;
+            left:0;
+            z-index:1;
+            margin: 5rem;
+        }
+
+
+        @media (max-width: 768px) {
+            .bloc-video video {
+                height: 100vh;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 2px;
+            background-color: #666;
+        }
+
+        body {
+            line-height: unset !important;
+        }
+
+        /* Font Style */
+        .ff-0 {
+            font-family: sans-serif;
+        }
+
+        .ff-1 {
+            font-family: "Noto Sans TC", sans-serif;
+        }
+
+        .fw-900 {
+            font-weight: 900;
+        }
+
+        .fs-05 {
+            font-size: 0.55em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-06 {
+            font-size: 0.6em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-07 {
+            font-size: 0.7em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-08 {
+            font-size: 0.8em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-09 {
+            font-size: 0.9em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-10 {
+            font-size: 1em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-11 {
+            font-size: 1.1em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-12 {
+            font-size: 1.2em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-13 {
+            font-size: 1.3em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-14 {
+            font-size: 1.4em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-15 {
+            font-size: 1.5em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-16 {
+            font-size: 1.6em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-17 {
+            font-size: 1.7em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-18 {
+            font-size: 1.8em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-19 {
+            font-size: 1.9em;
+            transition: font-size 0.3s;
+        }
+
+        .fs-115r {
+            font-size: 1.15rem;
+            transition: font-size 0.3s;
+        }
+
+        p a,
+        .fc-link {
+            color: #17a2b8 !important;
+            text-decoration: none !important;
+        }
+
+        p a:hover,
+        .fc-link:hover {
+            color: #148a9c !important;
+            text-decoration: none !important;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        a:focus,
+        a:active {
+            outline: none !important;
+        }
+
+        .hf {
+            font-size: 2.3rem !important;
+            font-weight: 700 !important;
+            line-height: 1.3 !important;
+            margin-top: 15%;
+        }
+
+        .hf-p {
+            color: rgba(255, 255, 255, 0.75) !important;
+            font-size: 1rem !important;
+            font-weight: 400 !important;
+        }
+
+        .fc-0 {
+            color: #161c2d !important;
+        }
+
+        .fc-1 {
+            color: #17a2b8 !important;
+        }
+
+        .fc-2 {
+            color: #3e4265 !important;
+        }
+
+        .fc-2:hover {
+            color: #17a2b8 !important;
+        }
+
+        .fc-2-active {
+            color: #17a2b8 !important;
+        }
+
+        .fc-3 {
+            color: #131022 !important;
+        }
+
+        .fc-4,
+        .fc-4 a,
+        .f-a {
+            color: #3e4265 !important;
+            text-decoration-line: none;
+        }
+
+        .fc-4 a:hover,
+        .f-a:hover {
+            color: #17a2b8 !important;
+        }
+
+        .fc-5 {
+            color: #585c7b !important;
+        }
+
+        .fc-6 {
+            color: #9397ad !important;
+        }
+
+        .fc-7,
+        .fc-7 a {
+            color: rgba(255, 255, 255, 0.7) !important;
+            text-decoration-line: none;
+        }
+
+        .fc-7 a:hover {
+            color: rgba(255, 255, 255) !important;
+        }
+
+        .fc-8 {
+            color: rgba(23, 162, 184, 0.4) !important;
+        }
+
+        /* Button */
+        .cnav {
+            color: #17a2b8 !important;
+            background-color: rgba(23, 162, 184, 0.1) !important;
+            transition: all 0.25s ease !important;
+        }
+
+        .cnav:hover {
+            color: #fff !important;
+            background-color: #17a2b8 !important;
+        }
+
+        .cnav.nav-link.active,
+        .show>.cnav.nav-link {
+            color: #fff !important;
+            background-color: #17a2b8 !important;
+        }
+
+        .btn-primary {
+            color: #fff !important;
+            background-color: #17a2b8 !important;
+            border-color: #17a2b8 !important;
+        }
+
+        .btn-primary:hover {
+            color: #fff !important;
+            background-color: #148a9c !important;
+            border-color: #128293 !important;
+        }
+
+        .btn-primary-soft {
+            color: #17a2b8 !important;
+            background-color: rgba(23, 162, 184, 0.1) !important;
+        }
+
+        .btn-primary-soft:hover {
+            color: #fff !important;
+            background-color: #17a2b8 !important;
+        }
+
+        .btn-primary-outline {
+            color: #17a2b8 !important;
+            border-color: #17a2b8 !important;
+        }
+
+        .btn-primary-outline:hover {
+            color: #fff !important;
+            background-color: #17a2b8 !important;
+            border-color: #17a2b8 !important;
+        }
+
+        .btn-danger-soft {
+            color: #d6293e !important;
+            background-color: rgba(214, 41, 62, 0.1) !important;
+        }
+
+        .btn-danger-soft:hover {
+            color: #fff !important;
+            background-color: #d6293e !important;
+        }
+
+        /* Badge */
+        .bg-info1 {
+            color: #fff !important;
+            background-color: #17a2b8 !important;
+        }
+
+        .bg-info2 {
+            color: #17a2b8 !important;
+            background-color: rgba(23, 162, 184, 0.1) !important;
+        }
+
+        .bg-blue1 {
+            color: #fff !important;
+            background-color: #003b8f !important;
+        }
+
+        .bg-danger1 {
+            color: #fff !important;
+            background-color: #ff0000 !important;
+        }
+
+        /* fa */
+        .fa-li {
+            top: 0.15em !important;
+        }
+
+        .fa-ul {
+            margin-left: 1.5em !important;
+        }
+
+        .fa-ul li {
+            margin-bottom: 3% !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bloc-video">
+        <video autoplay muted loop>
+            <source
+                src="https://static.vecteezy.com/system/resources/previews/007/515/611/mp4/scanning-qr-code-with-a-smartphone-4k-animation-digital-information-and-payment-method-with-qr-code-4k-footage-a-hand-holding-a-mobile-and-scanning-qr-code-4k-animation-video.mp4"
+                type="video/mp4">
+        </video>
+    </div>
+
+    <section class="container my-5">
+        <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
+            <div class="col-md-4">
+                <h1 class="mb-md-4 h1 fc-3 fw-bold"><span class="fc-1">Emergency</span> QR</h1>
+                <!-- <p class="fs-11 pt-1 pb-4 mb-1 mb-lg-3 fc-6">We will be in touch in 3 days!</p> -->
+                <!-- <ul class="list-unstyled pb-2 pb-lg-4">
+                    <li class="mb-3 mb-lg-4">
+                        <span class="d-block fs-sm fc-6">Working Time</span>
+                        <p class="pb-1 mb-2 fs-115r">Mon ~ Fri 9:00 ~ 18:00<br>Sat 9:00 ~ 12:00</p>
+                    </li>
+                    <li class="mb-3 mb-lg-4">
+                        <span class="d-block fs-sm fc-6">Phone</span>
+                        <a href="tel:0282263730" class="fc-2 fs-115r px-0">01-2345-6789</a>
+                    </li>
+                    <li class="mb-3 mb-lg-4">
+                        <span class="d-block fs-sm fc-6">Location</span>
+                        <div class="text-nav fs-115r fw-medium mb-1">Kuantan, Pahang, Malaysia</div>
+                        <a href="#" class="fs-sm fc-link"><u>Google Map</u></a>
+                    </li>
+                </ul> -->
+            </div>
+
+            <form class="col-xl-7 col-md-8 mt-5 offset-xl-1 needs-validation" novalidate="" id="gform" method="post">
+                {%csrf_token%}
+                <div class="row">
+                    <div class="col-sm-6 mb-4">
+                        <label for="name" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-person-fill me-2"></i>Name</label>
+                        <input type="text" id="name" name="Name" class="form-control form-control-lg" required=""
+                            placeholder="Your Name" maxlength="60">
+                        <div class="invalid-feedback">Required!</div>
+                    </div>
+
+                    <div class="col-sm-6 mb-4">
+                        <label for="email" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-envelope-at-fill me-2"></i>Emaill</label>
+                        <input type="email" id="email" name="Email" class="form-control form-control-lg" required=""
+                            placeholder="Your Email Address!" maxlength="100">
+                        <div class="invalid-feedback">Required / Error Format!</div>
+                    </div>
+
+                    <div class="col-12 mb-4">
+                        <label for="gender" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-gender-ambiguous me-2"></i>Gender</label><br>
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="Gender" id="btnradio1" autocomplete="off"
+                                value="Male" checked="">
+                            <label class="btn btn-outline-secondary" for="btnradio1"><i
+                                    class="fa-solid bi bi-gender-male me-2"></i>Male</label>
+                            <input type="radio" class="btn-check" name="Gender" id="btnradio3" autocomplete="off"
+                                value="Female">
+                            <label class="btn btn-outline-secondary" for="btnradio3"><i
+                                    class="fa-solid bi bi-gender-female me-2"></i>Female</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 mb-4">
+                        <label for="phone" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-telephone-fill me-2"></i>Phone</label>
+                        <input type="tel" id="phone" name="Phone1" class="form-control form-control-lg" required=""
+                            data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9"
+                            placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
+                        <div class="invalid-feedback">Required / Error Format!</div>
+                    </div>
+                    <div class="col-sm-6 mb-4">
+                        <label for="phone" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-telephone-fill me-2"></i>Phone</label>
+                        <input type="tel" id="phone" name="Phone2" class="form-control form-control-lg" required=""
+                            data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9"
+                            placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
+                        <div class="invalid-feedback">Required / Error Format!</div>
+                    </div>
+                    <div class="col-sm-6 mb-4">
+                        <label for="phone" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-telephone-fill me-2"></i>Phone</label>
+                        <input type="tel" id="phone" name="Phone3" class="form-control form-control-lg" 
+                            data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9"
+                            placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
+                    </div>
+
+                    <div class="col-sm-6 mb-4">
+                        <label for="subject" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-tags-fill me-2"></i>Occupuation</label>
+                        <select id="subject" class="form-select form-select-lg" name="Occupuation" required="">
+                            <option value="Employee" selected="" disabled="">Employee </option>
+                            <option value="Student">Student</option>
+                            <option value="Worker">Worker</option>
+                            <option value="House Wife">House Wife</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div class="invalid-feedback">Required!</div>
+                    </div>
+
+                    <div class="col-12 mb-4">
+                        <label for="message" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-pencil-square me-2"></i>Address</label>
+                        <textarea id="message" name="Address" class="form-control form-control-lg" rows="2" required=""
+                            placeholder="Write your present address" maxlength="100"></textarea>
+                        <div class="invalid-feedback">Required!</div>
+                    </div>
+
+                    <div class="col-sm-6 mb-4">
+                        <label for="subject" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-tags-fill me-2"></i>Blood Group</label>
+                        <select id="subject" class="form-select form-select-lg" name="Blood_Group" required="">
+                            <option value="A+" selected="" disabled="">A+ </option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                        <div class="invalid-feedback">Required!</div>
+                    </div>
+
+                    <div class="col-12 mb-4">
+                        <label for="message" class="form-label fs-base fc-3 fw-bold"><i
+                                class="fa-solid bi bi-pencil-square me-2"></i>Medical Condition</label>
+                        <textarea id="message" name="Medical_cond" class="form-control form-control-lg" rows="4" required=""
+                            placeholder="Mention your health condition and disesases if any" maxlength="300"></textarea>
+                        <div class="invalid-feedback">Required!</div>
+                    </div>
+                </div>
+
+                <div class="g-recaptcha" data-sitekey="6LcLbMUfAAAAADl3ZYTYPESh3TD_yzth8raTOgo4"
+                    data-callback="verifyCaptcha">
+                    <div style="width: 304px; height: 78px;">
+                        <div><iframe title="reCAPTCHA"
+                                src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcLbMUfAAAAADl3ZYTYPESh3TD_yzth8raTOgo4&amp;co=aHR0cHM6Ly9jY2wuY29tLnR3OjQ0Mw..&amp;hl=en&amp;v=jF-AgDWy8ih0GfLx4Semh9UK&amp;size=normal&amp;cb=j8lh0k4kf73"
+                                width="304" height="78" role="presentation" name="a-y4fwkamq2mz0" frameborder="0"
+                                scrolling="no"
+                                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+                        </div><textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                            class="g-recaptcha-response"
+                            style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                    </div><iframe style="display: none;"></iframe>
+                </div>
+
+                <div id="g-recaptcha-error"></div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg me-3"><i
+                        class="fa-solid bi bi-send-fill me-2"></i>Send</button>
+                <button type="reset" class="btn btn-primary-soft btn-lg"><i
+                        class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Validation
+        (function () {
+            "use strict";
+            var forms = document.querySelectorAll(".needs-validation");
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener(
+                    "submit",
+                    function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add("was-validated");
+                    },
+                    false
+                );
+            });
+        })();
+
+        //reCAPTCHA Validation
+        document.getElementById("gform").addEventListener("submit", function (evt) {
+            var response = grecaptcha.getResponse();
+            if (response.length == 0) {
+                alert("Please Validation You're Not Robot");
+                evt.preventDefault();
+                return false;
+            }
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

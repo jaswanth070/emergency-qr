@@ -1,5 +1,5 @@
 """
-WSGI config for emercency_QR project.
+WSGI config for emergency_QR project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

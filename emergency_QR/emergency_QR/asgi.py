@@ -1,5 +1,5 @@
 """
-ASGI config for emercency_QR project.
+ASGI config for emergency_QR project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
