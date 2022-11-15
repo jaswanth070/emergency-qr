@@ -16,7 +16,12 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <style>
-        
+        * {
+            padding: 0;
+            margin: 0;
+            /* display: flex; */
+            /* overflow: hidden; */
+        }
 
         .bloc-video {
             position: relative;
@@ -38,33 +43,24 @@
             filter: blur(5px);
         }
 
+        .container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            /* margin: 5rem; */
+        }
+
 
         @media (max-width: 768px) {
             .bloc-video video {
                 height: 100vh;
             }
         }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            border-radius: 2px;
-            background-color: #666;
-        }
-
         .fc-1 {
             color: #17a2b8 !important;
         }
-
-        .fc-3 {
-            color: #131022 !important;
-        }
+        
     </style>
 </head>
 
@@ -78,13 +74,6 @@
         </video>
         <h1 class="ml-4 h1 fc-3 fw-bold"><span class="fc-1 m-4">Emergency</span> QR</h1>
     </div>
-
-    <div class="container">
-        {% load static %}
-        <img class="logo" src="{% static '/logo.png' %}" alt="logo" height="300px">
-    </div>
-    
-    <!-- <a id ='d' onclick="download()">click Here</a> -->
 
 
     <script
