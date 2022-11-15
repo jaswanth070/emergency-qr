@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
@@ -19,13 +21,18 @@
         * {
             padding: 0;
             margin: 0;
-            /* display: flex; */
-            /* overflow: hidden; */
         }
 
         .bloc-video {
             position: relative;
-            height: 100vh;
+        }
+
+        .qr-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2rem;
         }
 
         .bloc-video video {
@@ -43,24 +50,19 @@
             filter: blur(5px);
         }
 
-        .container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            /* margin: 5rem; */
+        #logo {
+            height: 7rem;
         }
-
 
         @media (max-width: 768px) {
             .bloc-video video {
                 height: 100vh;
             }
         }
+
         .fc-1 {
             color: #17a2b8 !important;
         }
-        
     </style>
 </head>
 
@@ -72,12 +74,47 @@
                 src="https://static.vecteezy.com/system/resources/previews/007/515/611/mp4/scanning-qr-code-with-a-smartphone-4k-animation-digital-information-and-payment-method-with-qr-code-4k-footage-a-hand-holding-a-mobile-and-scanning-qr-code-4k-animation-video.mp4"
                 type="video/mp4">
         </video>
-        <h1 class="ml-4 h1 fc-3 fw-bold"><span class="fc-1 m-4">Emergency</span> QR</h1>
+    </div>
+
+    <nav class="navbar bg-* text-center">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static '/logo.png' %}" alt="Logo" class="d-inline-block align-text-top" id="logo">
+            </a>
+            <span id="logo-text" style="font-size: 3rem;"><span class="fc-1 fw-bold">Emergency</span> <span
+                    class="fw-bold">QR</span></span>
+        </div>
+    </nav>
+
+    <div class="qr-container">
+        <img id="qr" src="" class="qr-code img-thumbnail img-responsive">
+        <button class="btn btn-success" onclick="takeshot()">Download</button>
     </div>
 
 
     <script
         src="https://www.google.com/recaptcha/enterprise.js?render=6LfOegojAAAAAFJErXettWNfpjkJXwY4yKT1U-mY"></script>
+
+        <script type="text/javascript">
+  
+            // Define the function 
+            // to screenshot the div
+            function takeshot() {
+                let div =
+                    document.getElementById('photo');
+      
+                // Use the html2canvas
+                // function to take a screenshot
+                // and append it
+                // to the output div
+                html2canvas(div).then(
+                    function (canvas) {
+                        document
+                        .getElementById('output')
+                        .appendChild(canvas);
+                    })
+            }
+        </script>
 
     <script>
         grecaptcha.enterprise.ready(function () {
@@ -88,7 +125,7 @@
 
         function send() {
             var a = "http://chart.apis.google.com/chart?cht=qr&chl=";
-            var b = "&chs=150x150";
+            var b = "&chs=400x400";
 
             let img = document.querySelector("#qr");
             var link = "{{data}}";
@@ -97,7 +134,7 @@
             //alert(result)
 
             img.setAttribute("src", result);
-            
+
 
         }
     </script>
