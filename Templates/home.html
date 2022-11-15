@@ -364,15 +364,17 @@
             <source
                 src="https://static.vecteezy.com/system/resources/previews/007/515/611/mp4/scanning-qr-code-with-a-smartphone-4k-animation-digital-information-and-payment-method-with-qr-code-4k-footage-a-hand-holding-a-mobile-and-scanning-qr-code-4k-animation-video.mp4"
                 type="video/mp4">
-        </video>
-    </div>
-
-    <section class="container my-5">
-        <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
-            <div class="col-md-4">
-                <h1 class="ml-4 h1 fc-3 fw-bold"><span class="fc-1 m-4">Emergency</span> QR</h1>
-                {% load static %}
-                <img class="pb-2 pb-lg-4 ml-4" src="{% static '/logo.png' %}" alt="logo" height="300px">
+            </video>
+            <h1 class="ml-4 h1 fc-3 fw-bold"><span class="fc-1 m-4">Emergency</span> QR</h1>
+        </div>
+        
+        <section class="container my-5">
+            <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
+                <div class="col-md-4">
+                    {% load static %}
+                    <img class="pb-2 pb-lg-4 ml-4" src="{% static '/logo.png' %}" alt="logo" height="300px">
+                
+                
                 <!-- <p class="fs-11 pt-1 pb-4 mb-1 mb-lg-3 fc-6">We will be in touch in 3 days!</p> -->
                 <!-- <ul class="list-unstyled pb-2 pb-lg-4">
                     <li class="mb-3 mb-lg-4">
@@ -391,7 +393,7 @@
                 </ul> -->
             </div>
 
-            <form class="col-xl-7 col-md-8 mt-5 offset-xl-1 needs-validation" novalidate="" id="gform" method="post">
+            <form class="col-xl-7 col-md-8 mt-5 offset-xl-1 needs-validation" novalidate="" id="gform" method="POST">
                 {%csrf_token%}
                 <div class="row">
                     <div class="col-sm-6 mb-4">
@@ -451,8 +453,8 @@
 
                     <div class="col-sm-6 mb-4">
                         <label for="subject" class="form-label fs-base fc-3 fw-bold"><i
-                                class="fa-solid bi bi-tags-fill me-2"></i>Occupuation</label>
-                        <select id="subject" class="form-select form-select-lg" name="Occupuation" required="">
+                                class="fa-solid bi bi-tags-fill me-2"></i>Occupation</label>
+                        <select id="subject" class="form-select form-select-lg" name="Occupation" required="">
                             <option value="Employee" selected="" disabled="">Employee </option>
                             <option value="Student">Student</option>
                             <option value="Worker">Worker</option>
@@ -474,14 +476,14 @@
                         <label for="subject" class="form-label fs-base fc-3 fw-bold"><i
                                 class="fa fa-medkit"></i> Blood Group</label>
                         <select id="subject" class="form-select form-select-lg" name="Blood_Group" required="">
-                            <option value="A+" selected="" disabled="">A+ </option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
+                            <option  value="A+">A+ </option>
+                            <option  value="A-">A-</option>
+                            <option  value="B+">B+</option>
+                            <option  value="B-">B-</option>
+                            <option  value="O+">O+</option>
+                            <option  value="O-">O-</option>
+                            <option  value="AB+">AB+</option>
+                            <option  value="AB-">AB-</option>
                         </select>
                         <div class="invalid-feedback">Required!</div>
                     </div>
@@ -511,7 +513,7 @@
                     </div><iframe style="display: none;"></iframe>
                 </div> -->
 
-                <div id="g-recaptcha-error"></div>
+                <!-- <div id="g-recaptcha-error"></div> -->
                 <br>
                 <button type="submit" class="btn btn-primary btn-lg me-3"><i
                         class="fa-solid bi bi-qr-code me-2"></i>Generate</button>
