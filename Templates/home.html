@@ -34,7 +34,13 @@
             object-fit: cover;
             z-index: -1;
             position: fixed;
-            opacity: .8;
+            /* opacity: .8; */
+            opacity: 0.5;
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -o-filter: blur(5px);
+            -ms-filter: blur(5px);
+            filter: blur(5px);
         }
 
         .container{
@@ -42,7 +48,7 @@
             top:0;
             left:0;
             z-index:1;
-            margin: 5rem;
+            /* margin: 5rem; */
         }
 
 
@@ -364,9 +370,9 @@
     <section class="container my-5">
         <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
             <div class="col-md-4">
-                <h1 class="mb-md-4 h1 fc-3 fw-bold"><span class="fc-1">Emergency</span> QR</h1>
+                <h1 class="ml-4 h1 fc-3 fw-bold"><span class="fc-1 m-4">Emergency</span> QR</h1>
                 {% load static %}
-                <img src="{% static '/logo.png' %}" alt="My image">
+                <img class="pb-2 pb-lg-4 ml-4" src="{% static '/logo.png' %}" alt="logo" height="300px">
                 <!-- <p class="fs-11 pt-1 pb-4 mb-1 mb-lg-3 fc-6">We will be in touch in 3 days!</p> -->
                 <!-- <ul class="list-unstyled pb-2 pb-lg-4">
                     <li class="mb-3 mb-lg-4">
