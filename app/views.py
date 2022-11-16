@@ -8,8 +8,8 @@ def home(request):
         res = ""
         name = request.POST.get('Name')
         data["Name"] =name
-        email = request.POST.get('Vhc_no')
-        data["Vehical No"] =email
+        vhc_no = request.POST.get('Vhc_no')
+        data["Vehical No"] =vhc_no
         gender = request.POST.get('Gender')
         data["Gender"] =gender
         phone1 = request.POST.get('Phone1')
@@ -27,10 +27,22 @@ def home(request):
         med_cond = request.POST.get('Medical_cond')
         data["Medical_condition"] = med_cond
 
+        # res = '\n'.join(f'{key}: {value}' for key, value in data.items())
         for i in data:
             res = res + (i+"  "+str(data[i])+' ')
+        # res = ['\nName : ' + str(name)]
+        # res.append('Gender : ' + str(gender))
+        # res.append('Vehical Number : ' + str(vhc_no))
+        # res.append('Emergency Number 1: ' + str(phone1))
+        # res.append('Emergency Number 2: ' + str(phone2))
+        # res.append('Optional Number : ' + str(phone3))
+        # res.append('Occupation : ' + str(occu))
+        # res.append('Address : ' + str(address))
+        # res.append('Blood Group : ' + str(bld_grp))
+        # res.append('Medical Condition : ' + str(med_cond))
 
-        return render(request,'display.html',{'data':str(res),'name':name,"bld_grp":bld_grp,"em_ph":phone1})
+        # ans = '\n'.join(res)
+        return render(request,'display.html',{'data':res,'name':name,"bld_grp":bld_grp,"em_ph":phone1})
 
     return render(request,'home.html')
 

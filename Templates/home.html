@@ -385,9 +385,9 @@
 
                     <div class="col-sm-6 mb-4">
                         <label for="email" class="form-label fs-base fc-3 fw-bold"><i
-                                class="fa-solid bi bi-envelope-at-fill me-2"></i>Vehical No</label>
+                                class="fa fa-motorcycle me-2"></i>Vehical No</label>
                         <input type="text" id="email" name="Vhc_no" class="form-control form-control-lg" required=""
-                            placeholder="Your Vehical Number!" maxlength="100">
+                            placeholder="Your Vehical Number" maxlength="100">
                         <div class="invalid-feedback">Required / Error Format!</div>
                     </div>
 
@@ -407,17 +407,20 @@
                     </div>
 
                     <div class="col-sm-6 mb-4">
-                        <label for="phone" class="form-label fs-base fc-3 fw-bold"><i
-                                class="fa-solid bi bi-telephone-fill me-2"></i>Emergency Phone</label>
+                        <label for="phone" class="form-label fs-base fc-3 fw-bold" ><i
+                                class="fa-solid bi bi-telephone-fill me-2"></i><span data-toggle="tooltip"
+                                data-placement="top" title="Not of the rider">Emergency Phone</span></label>
                         <input type="tel" id="phone" name="Phone1" class="form-control form-control-lg" required=""
                             data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9"
                             placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
                         <div class="invalid-feedback">Required / Error Format!</div>
                     </div>
                     <div class="col-sm-6 mb-4">
-                        <label for="phone" class="form-label fs-base fc-3 fw-bold"><i
-                                class="fa-solid bi bi-telephone-fill me-2"></i>Emergency Phone</label>
-                        <input type="tel" id="phone" name="Phone2" class="form-control form-control-lg" required=""
+                        <label for="phone" class="form-label fs-base fc-3 fw-bold" data-toggle="tooltip"
+                        data-placement="top" title="Not of the rider"><i
+                                class="fa-solid bi bi-telephone-fill me-2" ></i>Emergency Phone</label>
+                        <input type="tel" id="phone" name="Phone2" data-toggle="tooltip"
+                                data-placement="top" title="Not of the rider" class="form-control form-control-lg" required=""
                             data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9"
                             placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
                         <div class="invalid-feedback">Required / Error Format!</div>
@@ -487,6 +490,11 @@
     </section>
 
     <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script>
         // Validation
         (function () {
             "use strict";
@@ -515,9 +523,6 @@
                 return false;
             }
         });
-
-
-
     </script>
     <script
         src="https://www.google.com/recaptcha/enterprise.js?render=6LfOegojAAAAAFJErXettWNfpjkJXwY4yKT1U-mY"></script>

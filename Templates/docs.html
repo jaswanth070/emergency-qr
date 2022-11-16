@@ -35,6 +35,10 @@
             gap: 2rem;
         }
 
+        .qr-container img{
+            height: 20rem;
+            /* width: 500px; */
+        }  
         .bloc-video video {
             width: 100%;
             height: auto;
@@ -68,8 +72,12 @@
             color:crimson !important;
         }
         .fc-3{
-            font-size: 1.5rem;
+            /* font-size: 0.5rem; */
             color: brown;
+        }
+
+        .container{
+            width: 50rem;
         }
     </style>
 </head>
@@ -87,7 +95,7 @@
     <nav class="navbar bg-* text-center">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="{% static '/logo.png' %}" alt="Logo" class="d-inline-block align-text-top" id="logo">
+                <img src="{% static '/logo.png' %}" alt="Logo" class="d-inline-block align-text-top" id="logo" width="auto">
             </a>
             <span id="logo-text" style="font-size: 3rem;"><span class="fc-1 fw-bold">Emergency</span> <span
                     class="fw-bold">QR</span></span>
@@ -95,11 +103,15 @@
     </nav>
 
     <div class="qr-container">
-        <img src="{% static 'download.png' %}" alt="img">
-
-        <p class="fc-3 fw-bold">Name : {{name}}</p>
-        <p class="fc-3 mt-0 fw-bold">Emergency Phone Number : {{em_ph}}</p>
-        <p class="fc-2 fw-bold">Blood Group : {{bld_grp}}</p>
+        <img src="{% static 'imgs/image.jpg' %}" alt="img">
+        <p class="container fc-3 fw-bold">Accidents happen every day. They are the leading cause of death for young people aged 15-29, and are a major cause of disability and injury. Each year, around 1.25 million people die in car accidents, and another 20-50 million are injured.</p>
+        
+        <img src="{% static 'imgs/Europe_Accidents_550_jpg.jpg' %}" alt="img">
+        <p class="container fc-3 fw-bold">The timely care prior to the arrival of the medical help means the difference between life and death.</p>
+        <p class="container fc-3 fw-bold">Life of an accident victim can be saved by administering timely medical aid. The 'GOLDEN HOUR', the first hour after the trauma is called the 'golden hour' Instant and proper first aid given to road accident victims during this hour increases the chance of survival manifold and reduce the severity of injuries. Many deaths and impact of injuries can be prevented with First Aid if causalities are treated immediately.</p>
+        <p class="container fc-3 fw-bold">As it is not always possible that proper medical care reaches the victim within an hour. In that case the passerby, onlookers and other people involved can help the victim by our <br>Emergency QR</p>
+        <p class="container fc-3 fw-bold"></p>
+        
     </div>
 
 
