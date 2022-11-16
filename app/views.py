@@ -30,25 +30,10 @@ def home(request):
         for i in data:
             res = res + (i+"  "+str(data[i])+' ')
 
-        return render(request,'display.html',{'data':str(res)})
+        return render(request,'display.html',{'data':str(res),'name':name,"bld_grp":bld_grp,"em_ph":phone1})
 
     return render(request,'home.html')
 
-
-
-# def generate_qr(data):
-#     qr = qrcode.QRCode(version = 1,
-#     				box_size = 10,
-#     				border = 5)
-#     for i in data:
-#         qr.add_data(str(i) + "  ")
-
-#     qr.make(fit = True)
-#     img = qr.make_image(fill_color = 'black',
-#     					back_color = 'white')
-
-#     # img.save('res.png')
-#     return img
 
 def download(request):
     return render(request,'display.html')

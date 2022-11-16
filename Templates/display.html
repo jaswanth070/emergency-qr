@@ -63,6 +63,14 @@
         .fc-1 {
             color: #17a2b8 !important;
         }
+        .fc-2 {
+            font-size: 1.5rem;
+            color:crimson !important;
+        }
+        .fc-3{
+            font-size: 1.5rem;
+            color: brown;
+        }
     </style>
 </head>
 
@@ -88,7 +96,11 @@
 
     <div class="qr-container">
         <img id="qr" src="" class="qr-code img-thumbnail img-responsive">
-        <button class="btn btn-success" onclick="window.print()">Download</button>
+        <button class="btn btn-success" onclick="window.print()">Print</button>
+
+        <p class="fc-3 fw-bold">Name : {{name}}</p>
+        <p class="fc-3 mt-0 fw-bold">Emergency Phone Number : {{em_ph}}</p>
+        <p class="fc-2 fw-bold">Blood Group : {{bld_grp}}</p>
     </div>
 
 
@@ -125,7 +137,7 @@
 
         function send() {
             var a = "http://chart.apis.google.com/chart?cht=qr&chl=";
-            var b = "&chs=400x400";
+            var b = "&chs=300x300";
 
             let img = document.querySelector("#qr");
             var link = "{{data}}";
