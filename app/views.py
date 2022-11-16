@@ -8,8 +8,8 @@ def home(request):
         res = ""
         name = request.POST.get('Name')
         data["Name"] =name
-        email = request.POST.get('Email')
-        data["Email"] =email
+        email = request.POST.get('vch_no')
+        data["Vehical No"] =email
         gender = request.POST.get('Gender')
         data["Gender"] =gender
         phone1 = request.POST.get('Phone1')
