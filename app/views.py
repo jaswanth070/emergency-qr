@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-import qrcode
+
 
 # Create your views here.
 def home(request):
@@ -36,22 +36,25 @@ def home(request):
 
 
 
-def generate_qr(data):
-    qr = qrcode.QRCode(version = 1,
-    				box_size = 10,
-    				border = 5)
-    for i in data:
-        qr.add_data(str(i) + "  ")
+# def generate_qr(data):
+#     qr = qrcode.QRCode(version = 1,
+#     				box_size = 10,
+#     				border = 5)
+#     for i in data:
+#         qr.add_data(str(i) + "  ")
 
-    qr.make(fit = True)
-    img = qr.make_image(fill_color = 'black',
-    					back_color = 'white')
+#     qr.make(fit = True)
+#     img = qr.make_image(fill_color = 'black',
+#     					back_color = 'white')
 
-    # img.save('res.png')
-    return img
+#     # img.save('res.png')
+#     return img
 
 def download(request):
     return render(request,'display.html')
+
+def about(request):
+    return render(request,'about.html')
 
 def test(request):
     return render(request,'temp.html')

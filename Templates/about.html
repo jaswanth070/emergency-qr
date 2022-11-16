@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About us</title>
+    {%load static%}
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'styles/about.css'%}">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="heading"><span>meet</span>Our Team</h1>
+
+    <div class="profiles">
+      <div class="profile">
+        <img src="{% static 'jaswanth_about.jpg' %}" class="profile-img">
+
+        <h3 class="user-name">Jaswanth<br>Madiya</h3>
+        <h5>Senior Developer</h5>
+        <p>Managed the operations of the project by conducting research and creating plans that suit the needs of the project. He himself coded the complete backend of the website and played a vital role in front-end designing.</p>
+      </div>
+      <div class="profile">
+        <img src="{% static 'rahman_about.jpg' %}" class="profile-img">
+
+        <h3 class="user-name">Abdur<br>Rahmaan</h3>
+        <h5>CO-Developer</h5>
+        <p>Partner of the developer for the establishment, Created and coded web pages and was held responsible for creating the design and layout of the website.</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
