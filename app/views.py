@@ -38,6 +38,9 @@ def home(request):
 def download(request):
     return render(request,'display.html')
 
+def docs(request):
+    return render(request,'docs.html')
+
 def about(request):
     return render(request,'about.html')
 
