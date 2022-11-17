@@ -53,6 +53,9 @@ def download(request):
 def docs(request):
     return render(request,'docs.html')
 
+def basic_first_aid(request):
+    return render(request,'basic_fd.html')
+
 def about(request):
     return render(request,'about.html')
 
