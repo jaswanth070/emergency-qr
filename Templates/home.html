@@ -348,6 +348,22 @@
             margin-bottom: 3% !important;
         }
     </style>
+    <style>
+        .footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* padding: 2rem; */
+            background: #17a2b8;
+            color: white;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -407,7 +423,7 @@
                     </div>
 
                     <div class="col-sm-6 mb-4">
-                        <label for="phone" class="form-label fs-base fc-3 fw-bold" ><i
+                        <label for="phone" class="form-label fs-base fc-3 fw-bold"><i
                                 class="fa-solid bi bi-telephone-fill me-2"></i><span data-toggle="tooltip"
                                 data-placement="top" title="Not of the rider">Emergency Phone</span></label>
                         <input type="tel" id="phone" name="Phone1" class="form-control form-control-lg" required=""
@@ -417,10 +433,10 @@
                     </div>
                     <div class="col-sm-6 mb-4">
                         <label for="phone" class="form-label fs-base fc-3 fw-bold" data-toggle="tooltip"
-                        data-placement="top" title="Not of the rider"><i
-                                class="fa-solid bi bi-telephone-fill me-2" ></i>Emergency Phone</label>
-                        <input type="tel" id="phone" name="Phone2" data-toggle="tooltip"
-                                data-placement="top" title="Not of the rider" class="form-control form-control-lg" required=""
+                            data-placement="top" title="Not of the rider"><i
+                                class="fa-solid bi bi-telephone-fill me-2"></i>Emergency Phone</label>
+                        <input type="tel" id="phone" name="Phone2" data-toggle="tooltip" data-placement="top"
+                            title="Not of the rider" class="form-control form-control-lg" required=""
                             data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9"
                             placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
                         <div class="invalid-feedback">Required / Error Format!</div>
@@ -487,8 +503,10 @@
                         class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button>
             </form>
         </div>
-    </section>
 
+    </section>
+    
+    <div class="footer">&copy;<span id="year"> </span><span> EMERGENCY-QR. All rights reserved to Jaswanth Madiya.</span></div>
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
