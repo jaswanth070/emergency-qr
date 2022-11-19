@@ -8,9 +8,29 @@
     {%load static%}
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
   <link rel="stylesheet" href="{% static 'styles/about.css'%}">
+ 
+  <style>
+
+    .footer {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /* padding: 2rem; */
+        background: #17a2b8;
+        color: white;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+</style>
+
 </head>
 
 <body style="background-color: #bff1eb;">
+
   <div class="container">
     <h1 class="heading" style="color: black;"><span style="color:#17a2b8;">meet</span>Our Team</h1>
 
@@ -27,10 +47,14 @@
 
         <h3 class="user-name">Abdur<br>Rahmaan</h3>
         <h5>CO-Developer</h5>
-        <p>Partner of the developer for the establishment, Created and coded web pages and was held responsible for creating the design and layout of the website.</p>
+        <p>Partner of the developer for the establishment, and was held responsible for creating the design and layout of the website.</p>
       </div>
     </div>
   </div>
+
+  
+  <div class="footer">&copy;<span id="year"> </span><span> EMERGENCY-QR. All rights reserved to Jaswanth Madiya.</span></div>
+
 </body>
 
 </html>
