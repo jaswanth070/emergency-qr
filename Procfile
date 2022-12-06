@@ -1,1 +1,1 @@
-web: gunicorn emergency_QR.wsgi 
+web: python manage.py migrate && gunicorn emergency_QR.wsgi
