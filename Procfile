@@ -1,1 +1,1 @@
-web: gunicorn emergency_QR.wsgi --log-file -
+web: gunicorn emergency_QR.wsgi 
